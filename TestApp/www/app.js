@@ -59,7 +59,7 @@ function httpGet()
 
 
     var input = document.getElementById('filename'),
-        fileName = input.value;
+        fileName = parseInt(input.value);
         console.log(fileName);
 
 
@@ -102,14 +102,19 @@ function httpGet()
     // red
     if ((fileName < 10) && ((parsedData['out2'] == 1) || (parsedData['out2'] == 4))) {
       document.body.style.backgroundColor = "rgb(" + parsedData['out1'] + ",0,0)";
+      console.log("### RED ###");
     }
     // green
     else if ((fileName < 20) && ((parsedData['out2'] == 2) || (parsedData['out2'] == 4))) {
       document.body.style.backgroundColor = "rgb(0," + parsedData['out1'] + ",0)";
+      console.log("### GREEN ###");
+
     }
     // blue
     else if ((fileName < 30) && ((parsedData['out2'] == 3) || (parsedData['out2'] == 4))) {
       document.body.style.backgroundColor = "rgb(0,0," + parsedData['out1'] + ")";
+      console.log("### BLUE ###");
+
     }
 
 
