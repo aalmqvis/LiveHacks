@@ -39,13 +39,22 @@ function retrieverTicker() {
 
 var accelerationX;
 
-
+var counter = 0;
+var sum = 0;
 function httpGet()
 {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", "http://10.37.101.125:8080/mobile.1." + accelerationX , false ); // false for synchronous request
+
+    var toSend = 0;
+    if (counter > 0 ) {
+      toSend = parseInt(sum/counter);
+    }
+    xmlHttp.open( "GET", "http://10.37.101.125:8080/mobile.1." + toSend , false ); // false for synchronous request
     xmlHttp.send( null );
     console.log(xmlHttp.responseText);
+
+    counter = 0;
+
     return xmlHttp.responseText;
 }
 
@@ -54,8 +63,10 @@ function main() {
   // retrieverTicker();
     // accRetriever();
   window.ondevicemotion = function(event) {
-    accelerationX = parseInt(event.accelerationIncludingGravity.x * 100);
+    var accelerationX = event.accelerationIncludingGravity.y;
     var accelerationY = event.accelerationIncludingGravity.y;
     var accelerationZ = event.accelerationIncludingGravity.z;
+
+    sum += 100*(accelerationX*accelerationX + accelerationY*accelerationY + accelerationZ*accelerationZ);
   }
 }
