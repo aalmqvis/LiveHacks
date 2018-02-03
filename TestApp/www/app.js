@@ -99,15 +99,15 @@ function httpGet()
     console.log("rgb(" + parsedData['out1'] + ",0,0)");
 
     // red
-    if (fileName < 10 && (parsedData['out2'] == 1 || parsedData['out2'] == 4) {
+    if (fileName < 10 && (parsedData['out2'] == 1 || parsedData['out2'] == 4)) {
       document.body.style.backgroundColor = "rgb(" + parsedData['out1'] + ",0,0)";
     }
     // green
-    else if (fileName < 20 && (parsedData['out2'] == 2 || parsedData['out2'] == 4){
+    else if (fileName < 20 && (parsedData['out2'] == 2 || parsedData['out2'] == 4)) {
       document.body.style.backgroundColor = "rgb(0," + parsedData['out1'] + ",0)";
     }
     // blue
-    else if (fileName < 30 && (parsedData['out2'] == 3 || parsedData['out2'] == 4){
+    else if (fileName < 30 && (parsedData['out2'] == 3 || parsedData['out2'] == 4)) {
       document.body.style.backgroundColor = "rgb(0,0," + parsedData['out1'] + ")";
     }
 
