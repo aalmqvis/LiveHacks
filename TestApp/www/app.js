@@ -28,7 +28,7 @@ function retrieverTicker() {
     // changeColor(parsedData['out1']);
     httpGet();
 
-	}, 100);
+	}, 500);
 
   // var parsedData = JSON.parse(httpGet());
   // console.log(parsedData['id']);
@@ -49,8 +49,14 @@ function retrieverTicker() {
 var counter = 0;
 var sum = 0;
 var fileName = 5;
+
+var colorCounter = 0;
+
+var toSend = 0;
+
 function httpGet()
 {
+
 
     var input = document.getElementById('filename'),
         fileName = input.value;
@@ -59,17 +65,27 @@ function httpGet()
 
     var xmlHttp = new XMLHttpRequest();
 
-    var toSend = 0;
-    if (counter > 0 ) {
+    // var toSend = 0;
+
+    // update acc data every 5th round
+    if (counter > 5) {
       toSend = parseInt(sum/counter);
+      counter = 0;
+      sum = 0;
     }
+    else {
+      // fileName = 0;
+
+    }
+
+
+
 
     xmlHttp.open( "GET", "http://10.37.101.125:8080/mobile." + fileName + "." + toSend , false ); // false for synchronous request
     xmlHttp.send( null );
     // console.log(xmlHttp.responseText);
 
-    counter = 0;
-    sum = 0;
+
 
     // console.log("### ID: ");
     // console.log(fileName);
@@ -81,26 +97,8 @@ function httpGet()
     console.log("rgb(" + parsedData['out1'] + ",0,0)");
     document.body.style.backgroundColor = "rgb(" + parsedData['out1'] + ",0,0)";
 
-    // if(fileName == 0) {
-    //   console.log("red");
-    //   document.body.style.backgroundColor = "red";
-    //
-    //
-    // }
-    // else if(fileName == 1) {
-    //   console.log("green ugg");
-    //   document.body.style.backgroundColor = "green";
-    //
-    // }
-    // else if(fileName == 2) {
-    //   console.log("blue");
-    //   document.body.style.backgroundColor = "blue";
-    //
-    // } else {
-    //   document.body.style.backgroundColor = "white";
-    // }
+    colorCounter++;
 
-    // changeColor(fileName);
 
     return xmlHttp.responseText;
 }
