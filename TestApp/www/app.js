@@ -116,6 +116,12 @@ function httpGet()
       console.log("### BLUE ###");
 
     }
+    // black
+    else {
+      document.body.style.backgroundColor = "rgb(0,0,0)";
+      console.log("### BLACK ###");
+
+    }
 
 
     colorCounter++;
