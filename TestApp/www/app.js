@@ -105,13 +105,13 @@ function httpGet()
       console.log("### RED ###");
     }
     // green
-    else if ((fileName < 20) && ((parsedData['out2'] == 2) || (parsedData['out2'] == 4))) {
+    else if (((fileName > 9) && (fileName < 20)) && ((parsedData['out2'] == 2) || (parsedData['out2'] == 4))) {
       document.body.style.backgroundColor = "rgb(0," + parsedData['out1'] + ",0)";
       console.log("### GREEN ###");
 
     }
     // blue
-    else if ((fileName < 30) && ((parsedData['out2'] == 3) || (parsedData['out2'] == 4))) {
+    else if (((fileName > 19) && (fileName < 30)) && ((parsedData['out2'] == 3) || (parsedData['out2'] == 4))) {
       document.body.style.backgroundColor = "rgb(0,0," + parsedData['out1'] + ")";
       console.log("### BLUE ###");
 
