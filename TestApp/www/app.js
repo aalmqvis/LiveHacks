@@ -37,16 +37,7 @@ function retrieverTicker() {
 //   setInterval ( accRetriever(), 50);
 // }
 
-var accelerationX;
-function accRetriever ()
-{
-    window.ondevicemotion = function(event) {
-      accelerationX = int(event.accelerationIncludingGravity.x * 100);
-      var accelerationY = event.accelerationIncludingGravity.y;
-      var accelerationZ = event.accelerationIncludingGravity.z;
-  }
 
-}
 
 function httpGet()
 {
@@ -57,8 +48,15 @@ function httpGet()
     return xmlHttp.responseText;
 }
 
+var accelerationX;
 
 
 function main() {
   // retrieverTicker();
+    // accRetriever();
+  window.ondevicemotion = function(event) {
+    accelerationX = int(event.accelerationIncludingGravity.x * 100);
+    var accelerationY = event.accelerationIncludingGravity.y;
+    var accelerationZ = event.accelerationIncludingGravity.z;
+  }
 }
