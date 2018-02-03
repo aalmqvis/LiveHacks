@@ -19,21 +19,21 @@
 //     document.body.style.backgroundColor = "white";
 //   }
 // }
-
+var colorRGB;
 
 function retrieverTicker() {
 	setInterval( function(){
-    // var parsedData = JSON.parse(httpGet());
+    // var parsedData = JSON.parse(httpGetNew());
     // console.log(parsedData['id']);
     // changeColor(parsedData['out1']);
-    httpGet();
+    httpGetNew();
 
 	}, 500);
 
-  // var parsedData = JSON.parse(httpGet());
+  // var parsedData = JSON.parse(httpGetNew());
   // console.log(parsedData['id']);
   // changeColor(parsedData['out1']);
-  httpGet();
+  httpGetNew();
 }
 
 
@@ -54,7 +54,7 @@ var colorCounter = 0;
 
 var toSend = 0;
 
-function httpGet()
+function httpGetNew()
 {
 
 
@@ -64,6 +64,7 @@ function httpGet()
 
 
     var xmlHttp = new XMLHttpRequest();
+
 
     // var toSend = 0;
 
@@ -101,17 +102,23 @@ function httpGet()
 
     // red
     if ((fileName < 10) && ((parsedData['out2'] == 1) || (parsedData['out2'] == 4))) {
+      // colorRGB = rgb(parsedData['out1'],0,0);
       document.body.style.backgroundColor = "rgb(" + parsedData['out1'] + ",0,0)";
       console.log("### RED ###");
     }
     // green
     else if (((fileName > 9) && (fileName < 20)) && ((parsedData['out2'] == 2) || (parsedData['out2'] == 4))) {
+      // colorRGB = rgb(0,parsedData['out1'],0);
+
       document.body.style.backgroundColor = "rgb(0," + parsedData['out1'] + ",0)";
       console.log("### GREEN ###");
+      console.log("fileName: " + fileName);
 
     }
     // blue
     else if (((fileName > 19) && (fileName < 30)) && ((parsedData['out2'] == 3) || (parsedData['out2'] == 4))) {
+      // colorRGB = rgb(0,0,parsedData['out1']);
+
       document.body.style.backgroundColor = "rgb(0,0," + parsedData['out1'] + ")";
       console.log("### BLUE ###");
 
