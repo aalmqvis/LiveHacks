@@ -54,7 +54,7 @@ function main() {
   // retrieverTicker();
     // accRetriever();
   window.ondevicemotion = function(event) {
-    accelerationX = int(event.accelerationIncludingGravity.x * 100);
+    accelerationX = parseInt(event.accelerationIncludingGravity.x * 100);
     var accelerationY = event.accelerationIncludingGravity.y;
     var accelerationZ = event.accelerationIncludingGravity.z;
   }
