@@ -54,6 +54,7 @@ function httpGet()
     console.log(xmlHttp.responseText);
 
     counter = 0;
+    sum = 0;
 
     return xmlHttp.responseText;
 }
@@ -68,5 +69,6 @@ function main() {
     var accelerationZ = event.accelerationIncludingGravity.z;
 
     sum += 100*(accelerationX*accelerationX + accelerationY*accelerationY + accelerationZ*accelerationZ);
+    counter++;
   }
 }
