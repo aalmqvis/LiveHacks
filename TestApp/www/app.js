@@ -37,6 +37,7 @@ function retrieverTicker() {
 //   setInterval ( accRetriever(), 50);
 // }
 
+var accelerationX;
 
 
 function httpGet()
@@ -47,8 +48,6 @@ function httpGet()
     console.log(xmlHttp.responseText);
     return xmlHttp.responseText;
 }
-
-var accelerationX;
 
 
 function main() {
