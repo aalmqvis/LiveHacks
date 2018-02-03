@@ -28,7 +28,7 @@ function retrieverTicker() {
     // changeColor(parsedData['out1']);
     httpGet();
 
-	}, 1000);
+	}, 100);
 
   // var parsedData = JSON.parse(httpGet());
   // console.log(parsedData['id']);
